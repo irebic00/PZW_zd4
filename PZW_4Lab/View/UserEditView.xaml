@@ -1,0 +1,22 @@
+﻿<Window x:Class="PZW_4Lab.View.UserEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UserEditView" Height="128" Width="384">
+    <Grid DataContext="{Binding Path=User}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Text="New User Name: " TextAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBox x:Name="TitleField" Text="{Binding Path=Title}" Grid.Column="1" Height="20"></TextBox>
+        <TextBlock Text="New Profile Picture: " TextAlignment="Right" VerticalAlignment="Center" Grid.Row="1"></TextBlock>
+        <TextBox x:Name="ImageField" Text="{Binding Path=ImagePath}" Grid.Column="1" Height="20" Grid.Row="1"></TextBox>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="30" x:Name="ButtonSave" Click="ButtonSave_Click">Save</Button>
+    </Grid>
+</Window>

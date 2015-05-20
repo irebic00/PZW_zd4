@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="PZW_4Lab.View.UserCollectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:PZW_4Lab.View"
+             xmlns:viewModel="clr-namespace:PZW_4Lab.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <DockPanel LastChildFill="True">
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Command="{Binding AddCommand}" Grid.Row="0" Grid.Column="0" Content="+" Width="20" Height="20" Margin="2" HorizontalAlignment="Left"></Button>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Command="{Binding GoLeftCommand}" Content="&lt;" Width="20" Height="20" HorizontalAlignment="Right" Margin="2"></Button>
+                <Button Command="{Binding GoRightCommand}" Content="&gt;" Width="20" Height="20" HorizontalAlignment="Left" Margin="2"></Button>
+            </StackPanel>
+        </Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+            <ListBox ItemsSource="{Binding UserViewModels}" SelectedItem="{Binding SelectedUser}" Background="AliceBlue">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate DataType="{x:Type viewModel:UserCollectionViewModel}">
+                        <view:UserView/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+    </DockPanel>
+</UserControl>

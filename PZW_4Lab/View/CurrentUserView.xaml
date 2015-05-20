@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="PZW_4Lab.View.CurrentUserView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:PZW_4Lab.View"
+             xmlns:viewModel="clr-namespace:PZW_4Lab.ViewModel"
+             mc:Ignorable="d" 
+             MaxHeight="126" MaxWidth="145">
+    <DockPanel LastChildFill="True">
+        
+        <ItemsControl ItemsSource="{Binding currentUserViewModel}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate DataType="{x:Type viewModel:CurrentUserViewModel}">
+                    <view:UserView/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+    </DockPanel>
+</UserControl>

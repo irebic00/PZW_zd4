@@ -1,0 +1,19 @@
+﻿<Window x:Class="PZW_4Lab.View.PostEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PostEditView" Height="128" Width="384">
+    <Grid DataContext="{Binding Path=CurrentPost}">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Change Post: " TextAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBox x:Name="PostField" Text="{Binding Path=post}" Grid.Column="1" Height="20"></TextBox>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Width="100" Height="30" x:Name="ButtonSave" Click="ButtonSave_Click">Save</Button>
+    </Grid>
+</Window>
